@@ -16,19 +16,17 @@ def on_received_buffer(receivedBuffer):
     dx = receivedBuffer.get_number(NumberFormat.INT16_LE, 6)
     dy = receivedBuffer.get_number(NumberFormat.INT16_LE, 8)
     dz = receivedBuffer.get_number(NumberFormat.INT16_LE, 10)
-    led.plot(pins.map(ux, 0, 100, 0, 4),
-        pins.map(uy, 0, 100, 0, 4))
+    led.plot(pins.map(ux, 0, 100, 0, 4), pins.map(uy, 0, 100, 0, 4))
 radio.on_received_buffer(on_received_buffer)
 
-dz = 0
-dy = 0
-dx = 0
-ux = 0
-uy = 0
 uz = 0
-
+uy = 0
+ux = 0
+dx = 0
+dy = 0
+dz = 0
 radio.set_group(99)
-basic.show_icon(IconNames.DUCK)
+basic.show_icon(IconNames.NO)
 radio.off()
 basic.pause(2)
 basic.clear_screen()
